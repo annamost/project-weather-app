@@ -19,30 +19,87 @@ const upcommingWeather = document.getElementById('upcomming-weather')
 
 const startCity = 'Trondheim'
 
+const root = document.querySelector(':root')
+
 // function for deciding the weather symbol
 const symbolDecider = (weatherType, moreInfo) => {
     let imageSrc = ''
     if (weatherType == 'Clear') {
         imageSrc = './assets/sun.png'
+
+
     } else if (weatherType == 'Clouds') {
         if (moreInfo.includes('overcast')) {
             imageSrc = './assets/cloud.png'
+
         } else {
             imageSrc = './assets/suncloud.png'
+
+
         }
 
     } else if (weatherType == 'Snow') {
         imageSrc = './assets/snow.png'
 
+
+
     } else if (weatherType == 'Rain' | weatherType == 'Drizzle') {
         imageSrc = './assets/rain.png'
+
+
     } else if (weatherType == 'Thunderstorm') {
         imageSrc = './assets/lightning.png'
+
     }
     else {
         imageSrc = './assets/sun.png'
+
     }
     return imageSrc
+}
+
+const backgroundChanger = (weatherType, moreInfo) => {
+
+    if (weatherType == 'Clear') {
+
+        root.style.setProperty('--background', '#D29F94')
+        root.style.setProperty('--foreground', '#FFE8E8')
+
+    } else if (weatherType == 'Clouds') {
+        if (moreInfo.includes('overcast')) {
+
+            root.style.setProperty('--background', '#C8D1DE')
+            root.style.setProperty('--foreground', '#E8E9FF')
+        } else {
+
+            root.style.setProperty('--background', '#D6B696')
+            root.style.setProperty('--foreground', '#FFF8E8')
+
+        }
+
+    } else if (weatherType == 'Snow') {
+
+
+        root.style.setProperty('--background', '#C8D1DE')
+        root.style.setProperty('--foreground', '#E8E9FF')
+
+    } else if (weatherType == 'Rain' | weatherType == 'Drizzle') {
+
+        root.style.setProperty('--background', '#C8D1DE')
+        root.style.setProperty('--foreground', '#E8E9FF')
+
+    } else if (weatherType == 'Thunderstorm') {
+
+        root.style.setProperty('--background', '#B8AB80')
+        root.style.setProperty('--foreground', '#FFF8E8')
+
+    }
+    else {
+
+        root.style.setProperty('--background', '#D29F94')
+        root.style.setProperty('--foreground', '#FFE8E8')
+    }
+
 }
 // now lets start with fetching some weather data 
 const fetchWeatherData = async (city) => {
@@ -67,6 +124,7 @@ const fetchWeatherData = async (city) => {
 
 
         imgSource = symbolDecider(mainWeather, moreInfo)
+        backgroundChanger(mainWeather, moreInfo)
         weatherImg.src = imgSource
 
         // I will update the inner text here as I will replace whatever data is there currently 
@@ -104,7 +162,7 @@ const fetchForecastData = async (city) => {
         rightTimeData = forecastData.filter((timePoint) => String(timePoint.dt_txt).includes('12:00:00'))
 
         // I have data for the next 4 extra days, so i will skip the first one.. 
-        rightTimeData.shift()
+        // rightTimeData.shift()
 
         // now I will add each day into my container
         rightTimeData.forEach((dayData) => {
@@ -125,7 +183,7 @@ const fetchForecastData = async (city) => {
             let currDayTemp = Math.round(dayData.main.temp)
             let dayMainWeather = dayData.weather[0].main
             let dayMoreInfo = dayData.weather[0].description
-            let allDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            let allDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
             let weekday = new Date(dayData.dt * 1000).getDay()
 
             // here we add to the elements
@@ -170,7 +228,11 @@ searchButton.addEventListener('click', () => {
     }
 
     fetchForecastData(cityName)
+
+    // delete the value from the search bar
+    document.getElementById('search-bar').value = ''
 })
 
+// With this I can initialize the website for trondheim
 fetchWeatherData(startCity)
 fetchForecastData(startCity)

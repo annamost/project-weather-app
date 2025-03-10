@@ -1,10 +1,27 @@
-body {
-  background: pink;
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+
+
+/* here we define the variables we will use  */
+:root {
+  --img-size: 80%;
+  --background: #D29F94;
+  /* red #D29F94 blue #C8D1DE green: #B8AB80 yellow  #D6B696*/
+  --foreground: #FFE8E8;
+  /* red #FFE8E8 blue #E8E9FF green: #F6FFE8 yellow  #FFF8E8*/
+  --radius-border: 40px;
 }
 
-#weather-img {
-  width: 300px;
+/* img {
+  width: 50px;
+} */
+
+body {
+  background: var(--background);
+  /* background: linear-gradient(180deg, var(--background) 0%, var(--foreground) 100%); */
+  font-family: "Poiret One", sans-serif;
 }
+
 
 #main-weather {
   display: flex;
@@ -12,15 +29,105 @@ body {
   align-items: center;
 }
 
+#weather-img {
+  width: var(--img-size);
 
-/* .menu-line {
-  width: 50px;
-  height: 5px;
-  fill: #dfd3c9;
-  background-color: #dfd3c9;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 40px;
-} */
+  /* position: absolute; */
+}
 
-/* make things captial letters and stuff!  */
+#temperature {
+  font-size: 44pt;
+  margin: 0;
+
+}
+
+#city {
+  margin: 0;
+  font-size: 28pt;
+  text-transform: capitalize;
+}
+
+#weather-description {
+  text-transform: capitalize;
+  font: 16pt;
+  margin: 0;
+}
+
+#sunrise {
+  margin-bottom: 0;
+  font: 12pt;
+}
+
+#sunset {
+  margin-top: 0;
+  font: 12pt;
+}
+
+#upcomming-weather {
+  /* background-color: white; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  /* width: 80%; */
+
+}
+
+
+.day-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+  background-color: var(--foreground);
+  border-radius: var(--radius-border);
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+.day-img {
+  height: 50px;
+}
+
+.day-text {
+  min-width: 50px;
+  font-size: 14pt;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 5px; */
+
+}
+
+#search-bar {
+  outline: none;
+  border-radius: var(--radius-border);
+  background-color: var(--foreground);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 20px;
+  padding-left: 10px;
+  font-size: 12pt;
+  font-family: "Poiret One", sans-serif;
+}
+
+#search-button {
+  background-color: inherit;
+  border-radius: var(--radius-border);
+  border: none;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+  height: 30px;
+  font-size: 16pt;
+}
+
+#search-button:hover {
+  opacity: 0.5;
+}
+
+/* now I adapt it for the website  */
