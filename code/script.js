@@ -193,6 +193,7 @@ const fetchForecastData = async (city) => {
 
             dayImg.src = dayImgSource
 
+            // i feel like if you would look at the website before 12 on the day you might get the weather for that too... but it would just be added with the right day... 
             dayWeekday.innerText = allDays[weekday]
 
             // now we add it all to the day container

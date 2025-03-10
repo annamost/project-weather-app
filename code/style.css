@@ -130,6 +130,16 @@ fieldset {
   opacity: 0.5;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+footer a:hover {
+  opacity: 0.5;
+}
+
 /* now I adapt it for the website  */
 @media (min-width: 667px) {
   main {
@@ -153,5 +163,6 @@ fieldset {
 
   #upcomming-weather {
     grid-column: 5 / 9;
+    margin-bottom: 0;
   }
 }
