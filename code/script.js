@@ -1,8 +1,6 @@
 // this is my URl for london to start with
-const weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=ceaf4c70fd0be39496ec90e5c961cd5f&units=metric'
-
 const apiKey = 'ceaf4c70fd0be39496ec90e5c961cd5f'
-const baseURL = 'http://api.openweathermap.org/data/2.5/weather'
+const baseURL = 'https://api.openweathermap.org/data/2.5/weather'
 const forecastURL = 'https://api.openweathermap.org/data/2.5/forecast'
 
 
