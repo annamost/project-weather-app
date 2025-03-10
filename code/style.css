@@ -131,3 +131,27 @@ fieldset {
 }
 
 /* now I adapt it for the website  */
+@media (min-width: 667px) {
+  main {
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+  }
+
+  #main-weather {
+    grid-column: 4 / 10;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #weather-img {
+    width: 60%;
+  }
+
+  #upcomming-weather {
+    grid-column: 5 / 9;
+  }
+}
