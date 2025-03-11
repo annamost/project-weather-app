@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 
-
 /* here we define the variables we will use  */
 :root {
   --img-size: 80%;
@@ -166,3 +165,5 @@ footer a:hover {
     margin-bottom: 0;
   }
 }
+
+/* styled the page following one of the suggested  layouts roughly but putting my own spin on it with custom icons and a bit of a different colorscheme etc. */

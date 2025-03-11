@@ -14,7 +14,7 @@ const sunset = document.getElementById('sunset')
 const sunrise = document.getElementById('sunrise')
 
 const upcommingWeather = document.getElementById('upcomming-weather')
-
+// this is a starting variable to load the page properly
 const startCity = 'Trondheim'
 
 const root = document.querySelector(':root')
@@ -55,7 +55,7 @@ const symbolDecider = (weatherType, moreInfo) => {
     }
     return imageSrc
 }
-
+// function to adapt the background color accoring to the weather... i could have made the colors variables.
 const backgroundChanger = (weatherType, moreInfo) => {
 
     if (weatherType == 'Clear') {
